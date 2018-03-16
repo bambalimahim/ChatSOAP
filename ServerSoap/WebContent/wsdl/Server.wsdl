@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws" xmlns:intf="http://ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getMessage">
+    <complexType/>
+   </element>
+   <element name="getMessageResponse">
+    <complexType>
+     <sequence>
+      <element name="getMessageReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="read">
+    <complexType>
+     <sequence>
+      <element name="fileName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="readResponse">
+    <complexType>
+     <sequence>
+      <element name="readReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="unsubscribe">
+    <complexType>
+     <sequence>
+      <element name="pseudo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="unsubscribeResponse">
+    <complexType>
+     <sequence>
+      <element name="unsubscribeReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subscribe">
+    <complexType>
+     <sequence>
+      <element name="pseudo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subscribeResponse">
+    <complexType>
+     <sequence>
+      <element name="subscribeReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postMessage">
+    <complexType>
+     <sequence>
+      <element name="pseudo" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postMessageResponse">
+    <complexType/>
+   </element>
+   <element name="ajout">
+    <complexType>
+     <sequence>
+      <element name="filename" type="xsd:string"/>
+      <element name="contenu" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ajoutResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="postMessageRequest">
+
+      <wsdl:part element="impl:postMessage" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="readResponse">
+
+      <wsdl:part element="impl:readResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMessageRequest">
+
+      <wsdl:part element="impl:getMessage" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="readRequest">
+
+      <wsdl:part element="impl:read" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subscribeResponse">
+
+      <wsdl:part element="impl:subscribeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ajoutResponse">
+
+      <wsdl:part element="impl:ajoutResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="unsubscribeResponse">
+
+      <wsdl:part element="impl:unsubscribeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subscribeRequest">
+
+      <wsdl:part element="impl:subscribe" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postMessageResponse">
+
+      <wsdl:part element="impl:postMessageResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ajoutRequest">
+
+      <wsdl:part element="impl:ajout" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="unsubscribeRequest">
+
+      <wsdl:part element="impl:unsubscribe" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMessageResponse">
+
+      <wsdl:part element="impl:getMessageResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Server">
+
+      <wsdl:operation name="getMessage">
+
+         <wsdl:input message="impl:getMessageRequest" name="getMessageRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMessageResponse" name="getMessageResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="read">
+
+         <wsdl:input message="impl:readRequest" name="readRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:readResponse" name="readResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unsubscribe">
+
+         <wsdl:input message="impl:unsubscribeRequest" name="unsubscribeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:unsubscribeResponse" name="unsubscribeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subscribe">
+
+         <wsdl:input message="impl:subscribeRequest" name="subscribeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:subscribeResponse" name="subscribeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postMessage">
+
+         <wsdl:input message="impl:postMessageRequest" name="postMessageRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:postMessageResponse" name="postMessageResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ajout">
+
+         <wsdl:input message="impl:ajoutRequest" name="ajoutRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ajoutResponse" name="ajoutResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServerSoapBinding" type="impl:Server">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getMessage">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMessageRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMessageResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="read">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="readRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="readResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unsubscribe">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="unsubscribeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="unsubscribeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subscribe">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="subscribeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="subscribeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postMessage">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="postMessageRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="postMessageResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ajout">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ajoutRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ajoutResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServerService">
+
+      <wsdl:port binding="impl:ServerSoapBinding" name="Server">
+
+         <wsdlsoap:address location="http://localhost:8080/ServerSoap/services/Server"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

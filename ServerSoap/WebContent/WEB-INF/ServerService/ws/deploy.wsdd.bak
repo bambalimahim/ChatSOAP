@@ -1,0 +1,45 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ServerService WSDL service -->
+
+  <service name="Server" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws"/>
+      <parameter name="wsdlServiceElement" value="ServerService"/>
+      <parameter name="schemaQualified" value="http://ws"/>
+      <parameter name="wsdlServicePort" value="Server"/>
+      <parameter name="className" value="ws.ServerSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Server"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getMessage" qname="operNS:getMessage" xmlns:operNS="http://ws" returnQName="retNS:getMessageReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="read" qname="operNS:read" xmlns:operNS="http://ws" returnQName="retNS:readReturn" xmlns:retNS="http://ws" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:fileName" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="unsubscribe" qname="operNS:unsubscribe" xmlns:operNS="http://ws" returnQName="retNS:unsubscribeReturn" xmlns:retNS="http://ws" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:pseudo" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="subscribe" qname="operNS:subscribe" xmlns:operNS="http://ws" returnQName="retNS:subscribeReturn" xmlns:retNS="http://ws" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:pseudo" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="postMessage" qname="operNS:postMessage" xmlns:operNS="http://ws" soapAction="" >
+        <parameter qname="pns:pseudo" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:message" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="ajout" qname="operNS:ajout" xmlns:operNS="http://ws" soapAction="" >
+        <parameter qname="pns:filename" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:contenu" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="read unsubscribe subscribe postMessage getMessage ajout"/>
+
+  </service>
+</deployment>
